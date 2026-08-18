@@ -11,6 +11,11 @@ const server = createServer((req, res) => {
     return;
   }
 
+  if (req.url === "/info") {
+    res.end(JSON.stringify({ app: "container-demo", version: "2.0", containerized: true }));
+    return;
+  }
+
   res.end(JSON.stringify({
     message: "Hola desde un contenedor",
     hostname: os.hostname(),
